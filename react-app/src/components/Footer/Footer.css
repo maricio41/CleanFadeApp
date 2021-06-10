@@ -1,0 +1,36 @@
+body {
+
+    padding-bottom: 82.67px;
+
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 275px;
+    background-color: black;
+    padding: 20px;
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+}
+.footer__liTag{
+    list-style-image: none;
+    list-style: none;
+}
+
+.footer__infoLink{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+}
+
+.footer__infoLink:hover{
+    color: red;
+    font-size: 45px;
+    transition: 1s;
+}

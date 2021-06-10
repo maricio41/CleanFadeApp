@@ -1,0 +1,22 @@
+.about__container--text{
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 26px;
+}
+
+.about__title{
+    align-self: center;
+}
+
+p{
+    padding: 20px 40px 20px 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 10px 0 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.5);
+}

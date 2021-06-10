@@ -1,0 +1,27 @@
+.shop-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1000px;
+    margin-top: 400px;
+    border: 2px solid rgba(0, 0, 0, 0.025);
+    box-shadow: 5px 4px 145px black;
+    background-color:rgba(255, 255, 255, 0.5);
+    width: 500px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: gray;
+
+
+
+}
+
+.appt-btn {
+    height: 100px;
+    width: 250px;
+    font-size: 25px;
+    font-family: cursive;
+    border-radius: 15px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: goldenrod;
+
+
+}
