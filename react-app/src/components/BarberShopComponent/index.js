@@ -28,21 +28,26 @@ export default function Barbershop() {
 
   return (
     <div className="shop-container">
+      <div className="shop-pic"></div>
       {barbershop && (
+
         <div className="info-container">
           <h1>{barbershop.name}</h1>
-          <p>{barbershop.address1}</p>
-          <p>{barbershop.address2}</p>
-          <p>
+          <div>{barbershop.address1}</div>
+          <div>{barbershop.address2}</div>
+          <div>
             {barbershop.city}, {barbershop.state}, {barbershop.postalCode}
-          </p>
-          <p>{barbershop.phoneNumber}</p>
-          <p>{barbershop.operationHours}</p>
-          <p>Website:{barbershop.website}</p>
+          </div>
+          <div>{barbershop.phoneNumber}</div>
+          <div>{barbershop.operationHours}</div>
+          <div>Website:{barbershop.website}</div>
         </div>
       )}
       <button className="appt-btn" onClick={onSubmit}>
         Shedule an Appointment
+      </button>
+      <button className="review-btn" onClick={onSubmit}>
+        Write a Review
       </button>
       <div>
         {barbershop?.barbershop?.barbers?.map((barber) => (

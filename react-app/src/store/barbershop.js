@@ -1,5 +1,6 @@
 const LOAD_BARBERSHOP = "barbershop/LOAD_BARBERSHOP";
 const LOAD_BARBERSHOPS = "barbershop/LOAD_BARBERSHOPS";
+const ADD_REVIEW = "reviews/ADD_REVIEW";
 const LOAD_BARBERSHOP_CITIES = "/LOAD_BARBERSHOP_CITIES";
 
 const loadBarberShop = (barbershop) => ({
@@ -15,6 +16,13 @@ const getBarberShopCities = (cities) => ({
   payload: cities,
 });
 
+const addReview = (review) => {
+  return {
+      type: ADD_REVIEW,
+      payload: review
+  }
+}
+
 export const getAllCities = () => async (dispatch) => {
   const response = await fetch(`/api/barbershops/cities`);
   if (response.ok) {
@@ -23,6 +31,23 @@ export const getAllCities = () => async (dispatch) => {
     return cities;
   }
 };
+
+export const postReview = (barbershopId, payload) => async dispatch => {
+  const response = await fetch(`/api/barbershops/${barbershopId}/reviews/create`,{
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload)
+  })
+  if(response.ok){
+      const {review} = await response.json()
+      dispatch(addReview(review))
+      return review
+  }else{
+      throw response;
+  }
+}
 
 export const getBarberShop = (barbershopId) => async (dispatch) => {
   console.log("------");

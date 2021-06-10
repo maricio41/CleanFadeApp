@@ -50,8 +50,9 @@ export default function AppForm() {
 
   return (
     <div className="app-container">
-      <Form onSubmit={handleSubmit}>
+      <form className="app-form" onSubmit={handleSubmit}>
         <input
+          className=""
           type="date"
           value={date}
           onChange={(e) => {
@@ -93,7 +94,7 @@ export default function AppForm() {
         </select>
 
         <button type="submit">Schedule an Appointment</button>
-      </Form>
+      </form>
     </div>
   );
 }

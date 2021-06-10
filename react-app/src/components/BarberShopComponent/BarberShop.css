@@ -1,23 +1,51 @@
 .shop-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     margin-left: 1000px;
-    margin-top: 400px;
+    margin-top: 200px;
     border: 2px solid rgba(0, 0, 0, 0.025);
-    box-shadow: 5px 4px 145px black;
+    box-shadow: 5px 4px 25px black;
     background-color:rgba(255, 255, 255, 0.5);
+    height:880px;
     width: 500px;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-color: black;
 
 
 
 }
 
+.shop-pic {
+    height: 50%;
+    background-image: url("../../projectpics/bbshopPic1.jpg");
+    background-position:top;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.info-container{
+    height:35%;
+    background-color: white;
+}
+
 .appt-btn {
-    height: 100px;
+    height: 50px;
     width: 250px;
-    font-size: 25px;
+    font-size: 16px;
+    align-self: center;
+    font-family: cursive;
+    border-radius: 15px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: goldenrod;
+
+
+}
+.review-btn {
+    height: 50px;
+    width: 250px;
+    font-size: 16px;
+    align-self: center;
     font-family: cursive;
     border-radius: 15px;
     -webkit-text-stroke-width: 1px;

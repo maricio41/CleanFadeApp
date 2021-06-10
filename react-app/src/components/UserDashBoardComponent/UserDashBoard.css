@@ -71,7 +71,7 @@ select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50%;
+    height: 75%;
     width:75%;
     margin-left: 50px;
     font-size: 20px;
@@ -83,5 +83,6 @@ select {
 
 
 .userdash__appt-upcoming{
-    
+    background-color: white;
+    padding: 10px;
 }

@@ -15,13 +15,19 @@ export default function BarberShops() {
   }, [city, dispatch]);
 
   return (
-    <div className="shops-container"> Select From List Below
+    <div className="shops-container">
       <h2 className="shops-title">Barber Shops for the city of {city}, Georgia</h2>
-      {shops?.map((barbershop) => (
-        <NavLink className="barbershop-link"to={`/barbershops/${barbershop.id}`} exact={true}>
-          {barbershop.name}
-        </NavLink>
-      ))}
-    </div>
+
+        {shops?.map((barbershop) => (
+          <div className="shop-card">
+            <img src={"../../projectpics/tiny_logo.jpg"} className="shop-img" alt="shop_image"/>
+            <NavLink className="barbershop-link"to={`/barbershops/${barbershop.id}`} exact={true}>
+              {barbershop.name}
+            </NavLink>
+          </div>
+        ))}
+
+      </div>
+
   );
 }

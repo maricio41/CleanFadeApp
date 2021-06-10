@@ -3,6 +3,7 @@ const LOAD_REVIEW = "reviews/LOAD_REVIEW";
 const ADD_REVIEW = "reviews/ADD_REVIEW";
 const EDIT_REVIEW = "reviews/EDIT_REVIEW"
 const REMOVE_REVIEW = "reviews/REMOVE_REVIEW"
+const REMOVE_USER_REVIEW = "reviews/REMOVE_USER_REVIEW"
 
 
 
@@ -33,6 +34,13 @@ const updateReview = (review) => {
 const removeReview = (review) => {
     return {
         type: REMOVE_REVIEW,
+        payload: review
+    }
+}
+
+const removeUserReview =(review) => {
+    return {
+        type: REMOVE_USER_REVIEW,
         payload: review
     }
 }
@@ -98,6 +106,19 @@ export const deleteReview = (barberId, reviewId) => async dispatch => {
     if(response.ok){
         const review = await response.json()
         dispatch(removeReview(review))
+    }else{
+        throw response;
+    }
+}
+
+export const deleteUserReview = (reviewId) => async dispatch => {
+    const response = await fetch(`/api/reviews/${reviewId}`,{
+        method: "DELETE",
+
+    })
+    if(response.ok){
+        const review = await response.json()
+        dispatch(removeUserReview(review))
     }else{
         throw response;
     }
