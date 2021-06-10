@@ -70,7 +70,7 @@ export default function UserDashBoard() {
           <NavLink className="userdash__create-review" to={`/reviews/create`} exact={true}>Write a Review</NavLink>
         </div>
         <div className="userdash__appointments-container">
-          <h2>Upcomings Appointments</h2>
+          <h1>Upcomings Appointments</h1>
           <div className="userdash__appt-upcoming">
             {user.appointments?.map((appointment) =>{
                 const event = new Date(appointment.datetime)
