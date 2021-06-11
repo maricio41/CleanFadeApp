@@ -52,7 +52,7 @@ export default function AppForm() {
     <div className="app-container">
       <form className="app-form" onSubmit={handleSubmit}>
         <input
-          className=""
+          className="calendar"
           type="date"
           value={date}
           onChange={(e) => {

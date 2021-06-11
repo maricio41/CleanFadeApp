@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import { getBarberShops } from "../../store/barbershop";
 import "./BarberShops.css";
+import shoppic from "./tiny_logo.jpg"
 
 export default function BarberShops() {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function BarberShops() {
 
         {shops?.map((barbershop) => (
           <div className="shop-card">
-            <img src={"../../projectpics/tiny_logo.jpg"} className="shop-img" alt="shop_image"/>
+            <img src={shoppic} className="shop-img" alt="shop_image"/>
             <NavLink className="barbershop-link"to={`/barbershops/${barbershop.id}`} exact={true}>
               {barbershop.name}
             </NavLink>
