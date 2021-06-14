@@ -14,7 +14,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50%;
+    height: 90%;
     width:75%;
     margin-left: 50px;
     font-size: 20px;
@@ -63,7 +63,8 @@ select {
 .userdash__appt-upcoming{
     display: flex;
     flex-direction: column;
-    justify-content: ;
+    justify-content: center;
+
 }
 
 .userdash__appointments-container{
@@ -71,7 +72,7 @@ select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 55%;
+    height: 90%;
     width:75%;
     margin-left: 50px;
     font-size: 20px;

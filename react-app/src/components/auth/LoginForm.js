@@ -32,7 +32,7 @@ const LoginForm = () => {
   }
 
   return (
-    <div style={{backgroundImage: "url('../../')"}}className="loginform__container">
+    <div style={{backgroundImage: "url('../../')"}} className="loginform__container">
       <form className="loginform__actual" onSubmit={onLogin}>
         <div>
           {errors.map((error) => (

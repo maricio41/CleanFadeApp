@@ -22,13 +22,18 @@
 
 .loginform__actual{
   display: flex;
-  justify-content: baseline;
+  justify-content: center;
   align-items: center;
-  margin-top: 500px;
+  margin-top: 400px;
 
 }
 
 button {
   height: 40px;
   width: 85%;
+}
+
+input{
+  height: 40px;
+  width: 200px
 }

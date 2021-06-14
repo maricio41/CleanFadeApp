@@ -100,6 +100,54 @@ def seed_barbershops():
                     state = "Georgia",
                     postalCode = "31730"
                 ),
+                 BarberShop(
+                    name = "Bowl Extraordinaires",
+                    address1 = "1640 N. Slappey Blvd",
+                    address2 = "Suite 200",
+                    phoneNumber = "(229)435-1600",
+                    operationHours = "Monday - Friday: 10am - 7pm, Saturday: 8am - 6pm, Sunday: Appointment Only!",
+                    website = "https://www.cutabove.com",
+                    bizImage = '',
+                    city = "Albany",
+                    state = "Georgia",
+                    postalCode = "31710"
+                ),
+                 BarberShop(
+                    name = "Hawkins Barbershop",
+                    address1 = "1640 N. Slappey Blvd",
+                    address2 = "Suite 200",
+                    phoneNumber = "(229)435-1600",
+                    operationHours = "Monday - Friday: 10am - 7pm, Saturday: 8am - 6pm, Sunday: Appointment Only!",
+                    website = "https://www.cutabove.com",
+                    bizImage = '',
+                    city = "Albany",
+                    state = "Georgia",
+                    postalCode = "31710"
+                ),
+                 BarberShop(
+                    name = "Ultra Cuts",
+                    address1 = "1640 N. Slappey Blvd",
+                    address2 = "Suite 200",
+                    phoneNumber = "(229)435-1600",
+                    operationHours = "Monday - Friday: 10am - 7pm, Saturday: 8am - 6pm, Sunday: Appointment Only!",
+                    website = "https://www.ultra.com",
+                    bizImage = '',
+                    city = "Albany",
+                    state = "Georgia",
+                    postalCode = "31710"
+                ),
+                 BarberShop(
+                    name = "MLK Barbershop",
+                    address1 = "1640 N. Slappey Blvd",
+                    address2 = "Suite 200",
+                    phoneNumber = "(229)435-1600",
+                    operationHours = "Monday - Friday: 10am - 7pm, Saturday: 8am - 6pm, Sunday: Appointment Only!",
+                    website = "https://www.cutmlk.com",
+                    bizImage = '',
+                    city = "Albany",
+                    state = "Georgia",
+                    postalCode = "31710"
+                ),
            ]
     for barbershop in data:
         db.session.add(barbershop)

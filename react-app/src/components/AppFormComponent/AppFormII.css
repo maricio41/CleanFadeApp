@@ -8,5 +8,15 @@
 }
 
 .calendar {
-    font-size: 16px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+button{
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: red;
+    border: 2px solid white;
 }

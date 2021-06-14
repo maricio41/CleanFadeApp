@@ -48,7 +48,9 @@ export default function AppForm() {
 
   return (
     <div className="app-container">
+      <h2>Book an Appointment</h2>
       <form className="app-form" onSubmit={handleSubmit}>
+        Select a Date
         <input
           className="calendar"
           type="date"
@@ -91,7 +93,7 @@ export default function AppForm() {
           })}
         </select>
 
-        <button type="submit">Schedule an Appointment</button>
+        <button type="submit">Click to Book</button>
       </form>
     </div>
   );
