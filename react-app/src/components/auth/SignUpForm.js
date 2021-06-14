@@ -34,7 +34,7 @@ const SignUpForm = () => {
           preferredHairStyle,
         }));
     }
-    history.push(`/users/${user.id}`)
+    // history.push(`/users/${user.id}`)
   };
 
   const updateUsername = (e) => {
@@ -69,7 +69,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to="/users/${user.id}" />;
   }
 
   return (
