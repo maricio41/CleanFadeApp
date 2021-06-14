@@ -1,8 +1,9 @@
-# Flask React Project
+#CleanFade
 
-This is the backend for the Flask React project.
+CleanFade is a barbershop that allows a user to search for a barbershop by city, navigate the barbershops profile page, book an appointment and leave a review.
 
-## Getting started
+## Key Features
+![search]()
 
 1. Clone this repository (only this branch)
 
