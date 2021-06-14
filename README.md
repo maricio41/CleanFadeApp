@@ -9,6 +9,9 @@ Python
 Flask
 SQLAlchemy
 
+## Contributors
+Maricio N. Harris
+
 ## Key Features
 ![search](https://github.com/maricio41/CleanFadeApp/blob/main/react-app/src/projectpics/cleanfadecitysearch.png)
 
