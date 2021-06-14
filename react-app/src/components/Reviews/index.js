@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getReviews } from "../../store/reviews";
-// import { Container } from "react-bootstrap";
-// import { FaRegStar } from "react-icons/fa";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import { deleteReview, getReviews } from "../../store/reviews";
+import { getReview, deleteReview, editReview } from "../../store/reviews";
 import "./MyReviews.css";
 
 function MyReviews() {
   const dispatch = useDispatch();
   const reviews = useSelector((state) => state.reviews.reviews);
+  const review = useSelector(state => state.reviews)
   // const user = useSelector((state) => state.session.user);
   useEffect(() => {
     dispatch(getReviews());
@@ -22,6 +21,13 @@ function MyReviews() {
     return result;
   };
 
+  const onClick = async (e) => {
+    e.preventDefault();
+
+    await dispatch(deleteReview(userR))
+
+  }
+
   return (
     <div className="review-container">
       <h1>My Recent Reviews</h1>
@@ -30,11 +36,8 @@ function MyReviews() {
         <div className="rev-quote-block">
           <div className="">{setStarRating(review.rating)}</div>
           <div className="">{review.reviewBody}</div>
-          <div>
-            <button className="edit-button" type="">Edit</button>
-            <button className="delete-button" type="">Delete</button>
-            </div>
-          {/* <i class="fas fa-star"></i> */}
+          <button className="edit-button" type="button">Edit</button>
+          <button className="delete-button" type="button">Delete</button>
         </div>
       ))}
     </div>

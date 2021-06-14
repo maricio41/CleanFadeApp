@@ -7,7 +7,7 @@
     box-shadow: 5px 4px 4px black;
     background-color:rgba(255, 255, 255, 0.5) ;
     height:100%;
-    width: 75%;
+    width: 95%;
     font-family: cursive;
     overflow-x: hidden;
     overflow-y:scroll;
@@ -16,15 +16,23 @@
 .rev-quote-block {
     padding: 0 15px;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
     background-color: white;
     width: 50%;
-    height: 31%;
-    margin-top: 25px;
-    margin-right: 25px;
-    margin-left: 0;
+    height: 55%;
     box-shadow: 5px 4px 15px rgba(0, 0, 0, 0.25);
+    margin-bottom: 8px;
 
+}
+
+.edit-button,
+.delete-button {
+    margin: 5px;
+    cursor: pointer;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+    background-color: red;
 }
