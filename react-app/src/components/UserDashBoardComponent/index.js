@@ -67,7 +67,6 @@ export default function UserDashBoard() {
         </div>
         <div className="userdash__review-container">
           <MyReviews />
-          <NavLink className="userdash__create-review" to={`/reviews/create`} exact={true}>Write a Review</NavLink>
         </div>
         <div className="userdash__appointments-container">
           <h1>Upcomings Appointments</h1>

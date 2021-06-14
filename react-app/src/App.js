@@ -52,7 +52,7 @@ function App() {
         <Route path="/barbershops/search/:city" exact={true}>
           <Barbershops />
         </Route>
-        <Route path="/barbers/:id/create-review" exact={true}>
+        <Route path="/barbershops/:id/create-review" exact={true}>
           <ReviewForm />
         </Route>
         <Route path="/appointments/:barbershopId" exact={true}>

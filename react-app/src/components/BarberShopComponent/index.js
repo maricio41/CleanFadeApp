@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, NavLink } from "react-router-dom";
 import { getBarberShop } from "../../store/barbershop";
 import "./BarberShop.css";
 
@@ -43,12 +43,12 @@ export default function Barbershop() {
           <div>Website:{barbershop.website}</div>
         </div>
       )}
-      <button className="appt-btn" onClick={onSubmit}>
+      <NavLink to={"/appointments/:barbershopId"} className="appt-btn" onClick={onSubmit}>
         Shedule an Appointment
-      </button>
-      <button className="review-btn" onClick={onSubmit}>
+      </NavLink>
+      <NavLink to={"/barbershops/:id/create-review"} className="review-btn" onClick={onSubmit}>
         Write a Review
-      </button>
+      </NavLink>
       <div>
         {barbershop?.barbershop?.barbers?.map((barber) => (
           <div>

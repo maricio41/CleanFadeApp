@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 import "./SignUpForm.css"
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
+  const history = useHistory()
   const user = useSelector((state) => state.session.user);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -20,7 +21,6 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      console.log(age);
       await dispatch(
         signUp({
 
@@ -32,10 +32,9 @@ const SignUpForm = () => {
           age,
           avatarUrl,
           preferredHairStyle,
-        }
-        )
-      );
+        }));
     }
+    history.push(`/users/${user.id}`)
   };
 
   const updateUsername = (e) => {
