@@ -4,8 +4,6 @@ import { useParams, useHistory } from "react-router-dom";
 // import DateTimePicker from "react-datetime-picker";
 import { addNewAppointment } from "../../store/appointments";
 
-import { Form } from "react-bootstrap";
-
 import "./AppForm.css";
 import "./AppFormII.css";
 import { getBarberShop } from "../../store/barbershop";

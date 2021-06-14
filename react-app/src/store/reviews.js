@@ -112,18 +112,20 @@ export const deleteReview = (barberId, reviewId) => async dispatch => {
 }
 
 export const deleteUserReview = (reviewId) => async dispatch => {
-    const response = await fetch(`/api/reviews/${reviewId}`,{
+    const response = await fetch(`/api/reviews/${reviewId}/delete`,{
         method: "DELETE",
+        // headers:{ "Content-Type": "application/json"},
+
 
     })
     if(response.ok){
         const review = await response.json()
-        dispatch(removeUserReview(review))
+        dispatch(removeUserReview(reviewId))
     }else{
         throw response;
     }
 }
-const initialState = {reviews: null, review: null};
+const initialState = {reviews: {userReviews:null}, review: null};
 
 const reviewsReducer = (state = initialState, action) => {
   let newState;
@@ -151,6 +153,10 @@ const reviewsReducer = (state = initialState, action) => {
     case REMOVE_REVIEW:
       newState = Object.assign({}, state);
       newState.review = action.payload
+      return newState;
+    case REMOVE_USER_REVIEW:
+      newState = Object.assign({}, state);
+      delete newState.reviews.userReviews[action.payload]
       return newState;
         default:
       return state;

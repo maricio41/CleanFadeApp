@@ -37,7 +37,7 @@ function ReviewForm() {
   };
 
   return (
-    <div review-form-container>
+    <div className="review-form-container">
       <h1>Leave a Review</h1>
       <form className="review-form" onSubmit={handleSubmit}>
       <select

@@ -14,7 +14,7 @@ def get_reviews():
     userReviews = Review.query.filter(Review.userId == userId).all()
     return {
         "reviews": [review.to_dict() for review in reviews],
-        "userReviews": [userReview.to_dict() for userReview in userReviews]
+        "userReviews": {userReview.id: userReview.to_dict() for userReview in userReviews}
     }
 
 @review_routes.route('/<int:id>', methods=["GET"])
@@ -27,4 +27,4 @@ def delete_review(id):
     review = Review.query.get(id)
     db.session.delete(review)
     db.session.commit()
-    return review.to_dict()
+    return {"message": 'Delete Success'}

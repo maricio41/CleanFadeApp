@@ -46,9 +46,12 @@ export default function Barbershop() {
       <NavLink to={"/appointments/:barbershopId"} className="appt-btn" onClick={onSubmit}>
         Shedule an Appointment
       </NavLink>
-      <NavLink to={"/barbershops/:id/create-review"} className="review-btn" onClick={onSubmit}>
-        Write a Review
-      </NavLink>
+      {barbershop && (
+        <NavLink to={`/barbershops/${barbershop.id}/create-review`} className="review-btn" onClick={onSubmit}>
+          Write a Review
+        </NavLink>
+
+      )}
       <div>
         {barbershop?.barbershop?.barbers?.map((barber) => (
           <div>
