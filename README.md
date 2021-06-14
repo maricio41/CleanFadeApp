@@ -1,4 +1,4 @@
-#CleanFade
+# CleanFade
 
 CleanFade is a barbershop that allows a user to search for a barbershop by city, navigate the barbershops profile page, book an appointment and leave a review.
 
@@ -18,7 +18,7 @@ SQLAlchemy
 
 ## Instructions
 
-Clone this repository 
+Clone this repository
 
    ```bash
    git clone https://github.com/maricio41/CleanFadeApp
@@ -32,4 +32,3 @@ Clone this repository
 >7. `flask run`
 >8. In the react-app folder, run `npm install` to install all frontend dependencies.
 >9. In the react-app folder, run `npm start` to start the react app.
-
