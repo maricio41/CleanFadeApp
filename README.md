@@ -2,101 +2,34 @@
 
 CleanFade is a barbershop that allows a user to search for a barbershop by city, navigate the barbershops profile page, book an appointment and leave a review.
 
+## Technologies
+React
+Redux
+Python
+Flask
+SQLAlchemy
+
 ## Key Features
-![search]()
+![search](https://github.com/maricio41/CleanFadeApp/blob/main/react-app/src/projectpics/cleanfadecitysearch.png)
 
-1. Clone this repository (only this branch)
+![search](https://github.com/maricio41/CleanFadeApp/blob/main/react-app/src/projectpics/citysearch2.png)
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+![barbershop page](https://github.com/maricio41/CleanFadeApp/blob/main/react-app/src/projectpics/barbershopprofilepage.png)
 
-2. Install dependencies
+## Instructions
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
-
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
-
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+Clone this repository 
 
    ```bash
-   pipenv shell
+   git clone https://github.com/maricio41/CleanFadeApp
    ```
+>1. In the root folder, run the following `pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt`
+>2. Make a .env file based on the .env.example (add values where required)
+>3. Create your PostgreSQL user, password, and database. The information must match your .env file.
+>4. Enter your shell enviroment with `pipenv shell`
+>5. `flask db upgrade`
+>6. `flask seed all`
+>7. `flask run`
+>8. In the react-app folder, run `npm install` to install all frontend dependencies.
+>9. In the react-app folder, run `npm start` to start the react app.
 
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
-
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
-
-## Deploy to Heroku
-
-1. Create a new project on Heroku
-2. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-4. Run
-
-   ```bash
-   heroku login
-   ```
-
-5. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-6. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-7. Push your docker container to heroku from the root directory of your project.
-   This will build the dockerfile and push the image to your heroku container registry
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-8. Release your docker container to heroku
-
-   ```bash
-   heroku container:release web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. set up your database:
-
-   ```bash
-   heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-   heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-   ```
-
-10. Under Settings find "Config Vars" and add any additional/secret .env variables.
-
-11. profit
-# CleanFade2
-# clean-fade
-# CleanFadeApp
