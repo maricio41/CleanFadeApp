@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteReview, getReviews } from "../../store/reviews";
-import { getReview, deleteReview, editReview } from "../../store/reviews";
 import "./MyReviews.css";
 
 function MyReviews() {
@@ -24,7 +23,7 @@ function MyReviews() {
   const onClick = async (e) => {
     e.preventDefault();
 
-    await dispatch(deleteReview(userR))
+    await dispatch(deleteReview( ))
 
   }
 
