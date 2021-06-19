@@ -13,7 +13,8 @@
     background: linear-gradient(to right top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
     border-radius: 20px;
     display: flex;
-    justify-content: space-around;
+
+
 }
 .userdash__title{
     padding: 2rem;
@@ -24,10 +25,24 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    flex: 1;
+    padding-top: 65px;
+    font-size: 20px;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+#user-profile-pic{
+    border-radius: 50%;
+    height: 250px;
 }
 
 .userdash__features{
-
+    flex:2;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .city-container{
@@ -35,14 +50,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50%;
-    width:75%;
+    height: 125%;
+    width:88%;
     margin-left: 50px;
     font-size: 20px;
     border: 2px solid rgba(0, 0, 0, 0.025);
-    box-shadow: 5px 4px 4px black;
+    border-radius: 10px;
     background-color:rgba(255, 255, 255, 0.5);
-    padding: 20px;
+
 }
 
 select {
@@ -71,15 +86,13 @@ select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 35px;
+    height: 50%;
+    width: 100%;
+    margin-right: 10px;
 }
 
-.userdash__create-review{
-    text-decoration: none;
-    margin-top: 10px;
-    font-size: 25px;
-    color: black;
-    font-weight: bold;
-}
+
 
 .userdash__appt-upcoming{
     display: flex;
@@ -93,12 +106,12 @@ select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50%;
-    width:75%;
+    height: 25%;
+    width:85%;
     margin-left: 50px;
     font-size: 20px;
     border: 2px solid rgba(0, 0, 0, 0.025);
-    box-shadow: 5px 4px 4px black;
+    border-radius: 10px;
     background-color:rgba(255, 255, 255, 0.5);
     padding: 20px;
     overflow-x: hidden;

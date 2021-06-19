@@ -31,7 +31,7 @@ function MyReviews() {
 
   return (
     <div className="review-container">
-      <h1>My Recent Reviews</h1>
+  
 
       {Object.values(reviews?.userReviews).map((review) => (
         <div className="rev-quote-block">

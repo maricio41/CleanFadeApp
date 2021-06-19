@@ -1,20 +1,21 @@
 .review-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     border: 2px solid rgba(0, 0, 0, 0.025);
-    box-shadow: 5px 4px 4px black;
+    border-radius: 10px;
     background-color:rgba(255, 255, 255, 0.5) ;
     height:100%;
-    width: 95%;
+    width: 88%;
+    padding: 10px;
     font-family: cursive;
     overflow-x: hidden;
     overflow-y:scroll;
 }
 
 .rev-quote-block {
-    padding: 0 15px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
@@ -22,7 +23,7 @@
     width: 50%;
     height: 55%;
     box-shadow: 5px 4px 15px rgba(0, 0, 0, 0.25);
-    margin-bottom: 8px;
+    margin: 8px;
 
 }
 

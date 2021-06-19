@@ -73,10 +73,13 @@ export default function UserDashBoard() {
           </div>
         </div>
         <div className="userdash__review-container">
+          <h1>My Recent Reviews</h1>
           <MyReviews />
-        </div>
-        <div className="userdash__appointments-container">
           <h1>Upcomings Appointments</h1>
+        </div>
+
+        <div className="userdash__appointments-container">
+
           <div className="userdash__appt-upcoming">
             {user.appointments?.map((appointment) =>{
                 const event = new Date(appointment.datetime)
