@@ -1,12 +1,33 @@
 .userdash__container{
-    display: grid;
-    grid-template: auto lfr auto / auto lfr auto
-
-
+    min-height: 100vh;
+    display: flex;
+    grid-template: auto lfr auto / auto lfr auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.glass{
+    background: white;
+    min-height: 80vh;
+    width: 60%;
+    background: linear-gradient(to right top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
 }
 .userdash__title{
     padding: 2rem;
     grid-column: 2/ 4;
+}
+.userdash__user-profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.userdash__features{
+
 }
 
 .city-container{
@@ -14,7 +35,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90%;
+    height: 50%;
     width:75%;
     margin-left: 50px;
     font-size: 20px;
@@ -72,7 +93,7 @@ select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90%;
+    height: 50%;
     width:75%;
     margin-left: 50px;
     font-size: 20px;

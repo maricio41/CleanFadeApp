@@ -47,6 +47,13 @@ export default function UserDashBoard() {
   return (
     <div className="userdash__container">
       <h2 className="userdash__title">{user.firstname}'s User Dashboard</h2>
+      <section className="glass">
+       <div className="userdash__user-profile">
+         <img id="user-profile-pic" src={user.avatarUrl} ></img>
+         {user.firstname} {user.lastname}
+       </div>
+       <div className="userdash__features">
+
         <div className="userdash__citySearch">
           <div className="city-container">
             <label><h3>Find a Barbershop</h3> </label>
@@ -79,6 +86,8 @@ export default function UserDashBoard() {
           </div>
 
         </div>
+       </div>
+      </section>
 
     </div>
   );
