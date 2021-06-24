@@ -13,7 +13,7 @@ const HomePage = () => {
         <div>Book an Appointment</div>
         <div>Leave a review</div>
       </div>
-      {user && (
+      {user ? (
         <NavLink
           style={{
             textDecoration: "none",
@@ -22,6 +22,20 @@ const HomePage = () => {
           }}
           className="homepage__dashboard--link"
           to={`/users/${user.id}`}
+          exact={true}
+        >
+
+      </NavLink>
+
+      ): (
+        <NavLink
+          style={{
+            textDecoration: "none",
+            color: "black",
+            backgroundColor: "rgba(255, 255, 255, 0.0)",
+          }}
+          className="homepage__dashboard--link"
+          to={`/login`}
           exact={true}
         >
 
