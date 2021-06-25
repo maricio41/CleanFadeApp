@@ -18,6 +18,10 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
+  if (user) {
+    return <Redirect to="/" />;
+  }
+
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
@@ -34,7 +38,6 @@ const SignUpForm = () => {
           preferredHairStyle,
         }));
     }
-    // history.push(`/users/${user.id}`)
   };
 
   const updateUsername = (e) => {
@@ -68,9 +71,7 @@ const SignUpForm = () => {
     setPreferredHairStyle(e.target.value);
   };
 
-  if (user) {
-    return <Redirect to="/users/${user.id}" />;
-  }
+
 
   return (
     <div className="form__container">
