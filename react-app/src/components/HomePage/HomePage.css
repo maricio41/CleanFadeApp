@@ -21,7 +21,7 @@ body {
   width: 100vw;
   /* margin-left: 950px; */
   /* margin-top: 350px; */
-  height: 75vh;
+  height: 40vh;
 
 }
 
@@ -65,8 +65,21 @@ body {
   width: 200px;
   height: 200px;
 }
+.homepage__revisited{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .homepage__dashboard--link:hover{
   border: 3px solid red;
   box-shadow: 5px 59x 145px rgba(255, 0, 0, 0.5);
+}
+
+.carousel__wrapper {
+
+  height: 25px;
+  width: 25vw;
+
 }
