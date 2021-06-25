@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCities } from "../../store/barbershop";
+import photo from './headshot2.jpg'
 import MyReviews from "../Reviews";
 
 
@@ -49,7 +50,7 @@ export default function UserDashBoard() {
       <h2 className="userdash__title">{user.firstname}'s User Dashboard</h2>
       <section className="glass">
        <div className="userdash__user-profile">
-         <img id="user-profile-pic" src={user.avatarUrl} ></img>
+         <img id="user-profile-pic" src={photo} ></img>
          {user.firstname} {user.lastname}
        </div>
        <div className="userdash__features">

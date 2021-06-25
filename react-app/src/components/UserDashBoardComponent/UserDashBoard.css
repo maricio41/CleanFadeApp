@@ -122,3 +122,10 @@ select {
     background-color: white;
     padding: 10px;
 }
+
+.user-profile-pic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%
+}

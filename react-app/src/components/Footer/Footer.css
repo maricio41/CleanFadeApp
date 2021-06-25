@@ -31,6 +31,6 @@ body {
 
 .footer__infoLink:hover{
     color: red;
-    font-size: 45px;
+    font-size: 25px;
     transition: 1s;
 }

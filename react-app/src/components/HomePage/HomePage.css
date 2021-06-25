@@ -78,8 +78,19 @@ body {
 }
 
 .carousel__wrapper {
+  display: flex;
+  justify-content: center;
 
   height: 25px;
-  width: 25vw;
+  width: 15vw;
 
 }
+.carousel__pic-frame{
+  height: 25%;
+}
+ img {
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   padding: 2px;
+   width: 295px;
+ }
