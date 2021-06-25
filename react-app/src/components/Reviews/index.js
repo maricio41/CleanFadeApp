@@ -31,15 +31,15 @@ function MyReviews() {
 
   return (
     <div className="review-container">
-  
+
 
       {Object.values(reviews?.userReviews).map((review) => (
         <div className="rev-quote-block">
           <div className="">{setStarRating(review.rating)}</div>
           <div className="">{review.reviewBody}</div>
-          <button className="edit-button" type="button">
+          {/* <button className="edit-button" type="button">
             Edit
-          </button>
+          </button> */}
           <button className="delete-button" type="button" onClick={() => onDelete(review.id)}>
             Delete
           </button>

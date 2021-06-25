@@ -17,8 +17,9 @@
 
 }
 .userdash__title{
-    padding: 2rem;
+    padding: 1rem;
     grid-column: 2/ 4;
+    border-bottom: 3px solid black;
 }
 .userdash__user-profile{
     display: flex;
