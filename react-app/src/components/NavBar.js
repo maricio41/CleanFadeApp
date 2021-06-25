@@ -17,7 +17,7 @@ const NavBar = () => {
           border: "1px solid rgba(0, 0, 0, 0.25)",
           backgroundColor: "#353531",
           height: "40px",
-          fontFamily: "cursive",
+          fontFamily: "Quicksand",
           fontSize:"25px",
           color: "#FF9505",
           padding: "2px 10px 2px 10px"
@@ -82,6 +82,7 @@ const NavBar = () => {
           border: "1px solid rgba(0, 0, 0, 0.25)",
           backgroundColor: "#242f40",
           height: "40px",
+          fontFamily: "Quicksand"
         }}
       >
         <div
@@ -89,11 +90,12 @@ const NavBar = () => {
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
+            paddingLeft: "15px"
           }}
         >
          <div>
             <NavLink
-              style={{ fontFamily: "cursive", fontSize:"25px", textDecoration: "none", color: "#FF9505" }}
+              style={{ fontFamily: "Quicksand", fontSize:"25px", textDecoration: "none", color: "#FF9505" }}
               to="/"
               exact={true}
               activeClassName="active"
@@ -101,7 +103,14 @@ const NavBar = () => {
               CleanFade
             </NavLink>
           </div>
-          <div className="navbar__logout" >
+          <div className="navbar__logout" style={{
+            display: "Flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            fontFamily: "Quicksand",
+            color: "#FF9505"
+          }}>
+            <div style={{ paddingRight: "15px"}}>Welcome, {user.firstname}</div>
             <LogoutButton />
           </div>
         </div>

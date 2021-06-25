@@ -10,9 +10,8 @@ const Footer = () => {
             <li className="footer__liTag" ><a className="footer__infoLink" href="/about">About Maricio</a></li>
             <li className="footer__liTag" ><a className="footer__infoLink" href="https://www.linkedin.com/in/maricio-harris-0547491b9/">Linkedin</a></li>
             <li className="footer__liTag" ><a className="footer__infoLink" href="https://github.com/maricio41">GitHub</a></li>
-            <li className="footer__liTag" ><a className="footer__infoLink" href="https://www.linkedin.com/in/maricio-harris-0547491b9/">Linkedin</a></li>
             <li className="footer__liTag" ><a className="footer__infoLink" href="https://github.com/maricio41" >Portfolio</a></li>
-            <li className="footer__liTag" ><a className="footer__infoLink" href="https://github.com/maricio41/CleanFade">Repo</a></li>
+            <li className="footer__liTag" ><a className="footer__infoLink" href="https://github.com/maricio41/CleanFadeApp">Repo</a></li>
         </ul>
     )
 }
