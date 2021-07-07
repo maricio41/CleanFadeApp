@@ -15,10 +15,10 @@ const NavBar = () => {
       <nav
         style={{
           border: "1px solid rgba(0, 0, 0, 0.25)",
-          backgroundColor: "#353531",
+          backgroundColor: "#242f40",
           height: "40px",
           fontFamily: "Quicksand",
-          fontSize:"25px",
+          fontSize:"20px",
           color: "#FF9505",
           padding: "2px 10px 2px 10px"
         }}
@@ -27,12 +27,13 @@ const NavBar = () => {
           style={{
             display: "flex",
             flexDirection: "row",
+            alignItems: "baseline",
             justifyContent: "space-between",
           }}
         >
           <div>
             <NavLink
-              style={{ fontFamily: "cursive", fontSize:"25px", textDecoration: "none", color: "#FF9505" }}
+              style={{ fontFamily: "Quicksand", fontSize:"20px", textDecoration: "none", color: "#FF9505" }}
               to="/"
               exact={true}
               activeClassName="active"
@@ -43,7 +44,7 @@ const NavBar = () => {
           </div>
           <div>
             <NavLink
-              style={{ textDecoration: "none", color: "#FF9505", fontSize: "25px" }}
+              style={{ textDecoration: "none", color: "#FF9505", fontSize: "20px" }}
               to="/login"
               exact={true}
               activeClassName="active"
@@ -89,13 +90,14 @@ const NavBar = () => {
           style={{
             display: "flex",
             flexDirection: "row",
+            alignItems: "baseline",
             justifyContent: "space-between",
             paddingLeft: "15px"
           }}
         >
          <div>
             <NavLink
-              style={{ fontFamily: "Quicksand", fontSize:"25px", textDecoration: "none", color: "#FF9505" }}
+              style={{ fontFamily: "Quicksand", fontSize:"20px", textDecoration: "none", color: "#FF9505" }}
               to="/"
               exact={true}
               activeClassName="active"
@@ -106,6 +108,7 @@ const NavBar = () => {
           <div className="navbar__logout" style={{
             display: "Flex",
             flexDirection: "row",
+            alignItems: "baseline",
             justifyContent: "space-around",
             fontFamily: "Quicksand",
             color: "#FF9505"
