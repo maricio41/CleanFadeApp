@@ -50,7 +50,7 @@ export const deleteAppointment = (barberId, appointmentId) => async (dispatch) =
   })
   if(response.ok){
     const {appointment} = await response.json()
-    dispatch(removeAppointment(appointment))
+    dispatch(removeAppointment(appointmentId))
     return appointment
   }else{
     throw response

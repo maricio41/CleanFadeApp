@@ -25,6 +25,7 @@ function MyReviews() {
 
     await dispatch(deleteUserReview(reviewId));
   };
+  
   if (!reviews.userReviews) {
     return null;
   }

@@ -32,12 +32,12 @@ export default function UserDashBoard() {
     })();
   }, [userId, dispatch]);
 
-  useEffect(() =>{
-    dispatch(getAppointment(barberId, appointmentId))
-  }, [barberId, appointmentId])
-  useEffect(() =>{
-    dispatch(getAppointments(barberId))
-  }, [barberId, dispatch])
+  // useEffect(() =>{
+  //   dispatch(getAppointment(barberId, appointmentId))
+  // }, [barberId, appointmentId])
+  // useEffect(() =>{
+  //   dispatch(getAppointments(barberId))
+  // }, [barberId, dispatch])
 
   useEffect(() => {
     dispatch(getAllCities());
@@ -46,6 +46,11 @@ export default function UserDashBoard() {
   if (!user) {
     return null;
   }
+
+  const onDelete = async (barberId, appointmentId) => {
+    await dispatch(deleteAppointment(barberId, appointmentId))
+  }
+
   const onSubmit = () => {
     if (city === 0) {
       window.alert("Please select a city!");
@@ -93,7 +98,11 @@ export default function UserDashBoard() {
           <div className="userdash__appt-upcoming">
             {user.appointments?.map((appointment) =>{
                 const event = new Date(appointment.datetime)
-                return <div>{`Your next appointment is scheduled for ${event.toDateString()}`}</div>
+                console.log(appointment.barber)
+                return <div>
+                  {`Your next appointment is scheduled for ${event.toDateString()}`}
+                  <button className="userdash__AppCancel" type="button" onClick={() => onDelete(appointment.barber, appointment.id)}>Cancel</button>
+                  </div>
             })}
 
           </div>
