@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCities } from "../../store/barbershop";
+import {getAppointment, getAppointments, deleteAppointment} from "../../store/appointments"
 import photo from './headshot2.jpg'
 import MyReviews from "../Reviews";
 
@@ -15,9 +16,10 @@ export default function UserDashBoard() {
   const [user, setUser] = useState({});
   const [city, setCity] = useState(0);
 
+
   // Notice we use useParams here instead of getting the params
   // From props.
-  const { userId } = useParams();
+  const { userId, barberId, appointmentId } = useParams();
 
   useEffect(() => {
     if (!userId) {
@@ -29,6 +31,13 @@ export default function UserDashBoard() {
       setUser(user);
     })();
   }, [userId, dispatch]);
+
+  useEffect(() =>{
+    dispatch(getAppointment(barberId, appointmentId))
+  }, [barberId, appointmentId])
+  useEffect(() =>{
+    dispatch(getAppointments(barberId))
+  }, [barberId, dispatch])
 
   useEffect(() => {
     dispatch(getAllCities());
