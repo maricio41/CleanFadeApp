@@ -1,13 +1,15 @@
-import React, {useEffect, useState} from 'react'
-import { useDispatch, useSelector, useHistory } from 'react-router-dom'
+import React, {useEffect, useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 import { getAllCities } from '../../store/barbershop'
 import "./CitySearch.css"
 
 
 const CitySearch = () => {
     const dispatch = useDispatch()
-    const history = useHistorty()
+    const history = useHistory()
     const cities = useSelector((state) => state.barbershops.cities)
+    const [city, setCity] = useState(0)
 
     useEffect(() => {
         dispatch(getAllCities())
@@ -22,8 +24,8 @@ const CitySearch = () => {
       };
 
     return (
-        <div className="userdash__citySearch">
-          <div className="city-container">
+
+          <div className="citySearch__container">
             <label><h3>Find a Barbershop</h3> </label>
             <select
               value={city}
@@ -37,9 +39,9 @@ const CitySearch = () => {
                   return <option value={city}>{city}</option>;
                 })}
             </select>
-            <button className="userdash__search-submit" onClick={onSubmit}> Submit </button>
+            <button className="search-submit" onClick={onSubmit}> Submit </button>
           </div>
-        </div>
+
     )
 }
 

@@ -61,55 +61,60 @@ export default function UserDashBoard() {
 
   return (
     <div className="userdash__container">
-      <h2 className="userdash__title">{user.firstname}'s User Dashboard</h2>
-      <section className="glass">
-       <div className="userdash__user-profile">
-         <img id="user-profile-pic" src={photo} ></img>
-         {user.firstname} {user.lastname}
-       </div>
-       <div className="userdash__features">
+      <header>
+        <h2 id="userdash__title" className="userdash__title">{user.firstname}'s User Dashboard</h2>
+      </header>
+      <main>
 
-        <div className="userdash__citySearch">
-          <div className="city-container">
-            <label><h3>Find a Barbershop</h3> </label>
-            <select
-              value={city}
-              onChange={(e) => {
-                setCity(e.target.value);
-              }}
-            >
-              <option value={0}>Please choose a city</option>
-              {cities &&
-                Object.values(cities).map((city) => {
-                  return <option value={city}>{city}</option>;
-                })}
-            </select>
-            <button className="userdash__search-submit" onClick={onSubmit}> Submit </button>
+        <section className="glass">
+        <div className="userdash__user-profile">
+          <img id="user-profile-pic" src={photo} alt="" ></img>
+          {user.firstname} {user.lastname}
+        </div>
+        <div className="userdash__features">
+
+          <div className="userdash__citySearch">
+            <div className="city-container">
+              <label><h3>Find a Barbershop</h3> </label>
+              <select
+                value={city}
+                onChange={(e) => {
+                  setCity(e.target.value);
+                }}
+              >
+                <option value={0}>Please choose a city</option>
+                {cities &&
+                  Object.values(cities).map((city) => {
+                    return <option value={city}>{city}</option>;
+                  })}
+              </select>
+              <button className="userdash__search-submit" onClick={onSubmit}> Submit </button>
+            </div>
           </div>
-        </div>
-        <div className="userdash__review-container">
-          <h1>My Recent Reviews</h1>
-          <MyReviews />
-          <h1>Upcomings Appointments</h1>
-        </div>
-
-        <div className="userdash__appointments-container">
-
-          <div className="userdash__appt-upcoming">
-            {user.appointments?.map((appointment) =>{
-                const event = new Date(appointment.datetime)
-                console.log(appointment.barber)
-                return <div>
-                  {`Your next appointment is scheduled for ${event.toDateString()}`}
-                  <button className="userdash__AppCancel" type="button" onClick={() => onDelete(appointment.barber, appointment.id)}>Cancel</button>
-                  </div>
-            })}
-
+          <div className="userdash__review-container">
+            <h1>My Recent Reviews</h1>
+            <MyReviews />
+            <h1>Upcomings Appointments</h1>
           </div>
 
+          <div className="userdash__appointments-container">
+
+            <div className="userdash__appt-upcoming">
+              {user.appointments?.map((appointment) =>{
+                  const event = new Date(appointment.datetime)
+                  console.log(appointment.barber)
+                  return <div>
+                    {`Your next appointment is scheduled for ${event.toDateString()}`}
+                    <button className="userdash__AppCancel" type="button" onClick={() => onDelete(appointment.barber, appointment.id)}>Cancel</button>
+                    </div>
+              })}
+
+            </div>
+
+          </div>
         </div>
-       </div>
-      </section>
+        </section>
+      </main>
 
     </div>
   );

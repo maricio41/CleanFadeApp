@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import { login } from "../store/session";
+import CitySearch from "./CitySearch";
 import "./NavCss/Navbar.css"
 
 const NavBar = () => {
@@ -105,6 +106,7 @@ const NavBar = () => {
               CleanFade
             </NavLink>
           </div>
+          <CitySearch />
           <div className="navbar__logout" style={{
             display: "Flex",
             flexDirection: "row",
