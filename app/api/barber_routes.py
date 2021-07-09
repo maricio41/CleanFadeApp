@@ -10,12 +10,15 @@ from datetime import datetime
 
 barber_routes = Blueprint('barbers', __name__)
 
-
+@barber_routes.route('/<int:barberId>/appointments', methods=['GET'])
+def get_appointments(barberId):
+    appointments = Appointment.query.all()
+    return appointments.to_dict()
 
 @barber_routes.route('/<int:id>/appointments', methods=['POST'])
 def get_form(id):
     form = AppointmentForm()
-    print(request.get_json())
+    # print(request.get_json())
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
@@ -44,3 +47,10 @@ def get_review_form(barberId):
         return review.to_dict()
     else:
         return jsonify("It didn't do what it do, baby!")
+
+@barber_routes.route('/<int:barberId>/appointments/<int:appointmentId>/delete', methods=['DELETE'])
+def delete_appointments(barberId, appointmentId):
+    appointment = Appointment.query.get(appointmentId)
+    db.session.delete(appointment)
+    db.session.commit()
+    return {"message": 'Delete Success'}

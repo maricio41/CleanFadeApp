@@ -22,6 +22,18 @@ def get_review(id):
     review = Review.query.get(id)
     return review.to_dict()
 
+@review_routes.route('/<int:id>', methods=["PATCH"])
+def update_review(id):
+    review = Review.query.get(id)
+    if review:
+        review.reviewBody = request.form['reviewBody']
+        review.rating = request.form['rating']
+        db.session.add(review)
+        db.session.commit()
+        return f'{Review} was successfully updated'
+    return {"Errors": "Bad Request"}, 400
+
+
 @review_routes.route('/<int:id>/delete', methods=['DELETE'])
 def delete_review(id):
     review = Review.query.get(id)
