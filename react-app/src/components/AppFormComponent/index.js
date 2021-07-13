@@ -8,7 +8,6 @@ import "./AppForm.css";
 import "./AppFormII.css";
 import { getBarberShop } from "../../store/barbershop";
 
-
 export default function AppForm() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -21,7 +20,6 @@ export default function AppForm() {
   // const [max, setMax] = useState();
   const [time, setTime] = useState("10:00");
 
-
   useEffect(() => {
     dispatch(getBarberShop(Number(barbershopId)));
   }, [barbershopId, dispatch]);
@@ -29,28 +27,26 @@ export default function AppForm() {
     return <h1>Loading...</h1>;
   }
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
-    if(selectBarber === 0){
-      window.alert("Please select a barber!")
-      return
+    if (selectBarber === 0) {
+      window.alert("Please select a barber!");
+      return;
     }
 
-    await dispatch(addNewAppointment(selectBarber, {date, time}))
+    await dispatch(addNewAppointment(selectBarber, { date, time }));
     window.alert("Appointment Created!");
-    history.push(`/users/${user.id}`)
+    history.push(`/users/${user.id}`);
   };
-
 
   return (
     <div className="app-container">
       <h2>Book an Appointment</h2>
       <form className="app-form" onSubmit={handleSubmit}>
-        Select a Date
+        <label className="appt-labels" for="date-selector">
+          Select a Date
+        </label>
         <input
           className="calendar"
           type="date"
@@ -60,9 +56,16 @@ export default function AppForm() {
           }}
         />
 
-
-        <label for="time-selector">Select a time</label>
-        <select value={time} onChange={(e) => {setTime(e.target.value)}} id="time-selector">
+        <label className="appt-labels" for="time-selector">
+          Select a time
+        </label>
+        <select
+          value={time}
+          onChange={(e) => {
+            setTime(e.target.value);
+          }}
+          id="time-selector"
+        >
           <option value={"10:00"}>10:00 AM</option>
           <option value={"11:00"}>11:00 AM</option>
           <option value={"12:00"}>12:00 PM</option>
@@ -72,7 +75,10 @@ export default function AppForm() {
           <option value={"16:00"}>04:00 PM</option>
           <option value={"17:00"}>05:00 PM</option>
         </select>
-        <label for="barber-selector"> Choose a Barber</label>
+        <label className="appt-labels" for="barber-selector">
+          {" "}
+          Choose a Barber
+        </label>
         <select
           value={selectBarber}
           onChange={(e) => {
@@ -81,9 +87,7 @@ export default function AppForm() {
           name="barbers"
           id="barber-selector"
         >
-          <option value={0} >
-            Please select a barber
-          </option>
+          <option value={0}>Please select a barber</option>
           {barbershop.barbers.map((barber) => {
             return (
               <option value={barber.id} key={barber.id}>
@@ -93,7 +97,9 @@ export default function AppForm() {
           })}
         </select>
 
-        <button type="submit">Click to Book</button>
+        <button className="booking-button" type="submit">
+          Click to Book
+        </button>
       </form>
     </div>
   );

@@ -1,19 +1,17 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-image: url("../../projectpics/bright-yellow-brick.jpg");
-    background-position: center;
-    background-size: cover;
-    font-family: cursive;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-image: url("../../projectpics/bright-yellow-brick.jpg");
+  background-position: center;
+  background-size: cover;
+  font-family: cursive;
+  box-sizing: border-box;
 }
-
 
 .home-page-container {
   display: flex;
   flex-direction: row;
   /* background-image: url("../../projectpics/logo.png"); */
-
 
   align-items: center;
   justify-content: space-around;
@@ -22,42 +20,41 @@ body {
   /* margin-left: 950px; */
   /* margin-top: 350px; */
   height: 40vh;
-
 }
 
 .homepage__dashboard--link {
   background-image: url("../../projectpics/logo.png");
-  background-position: center ;
+  background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
   border-radius: 50%;
   height: 25vh;
   width: 25vw;
-  box-shadow: 3px 6px 25px rgba(0, 0, 0, 0.40)
+  box-shadow: 3px 6px 25px rgba(0, 0, 0, 0.4);
 }
 
 .homepage__blank,
-.homepage__info{
+.homepage__info {
   /* border: 1px solid black; */
   height: 25vh;
   width: 25vw;
 }
 .homepage__blank {
   background-image: url("../../projectpics/barbershop-pole.png");
-  background-position: center ;
+  background-position: center;
   background-size: 35%;
   background-repeat: no-repeat;
 }
 
-.homepage__info{
+.homepage__info {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   font-size: 50px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bold;
-  text-shadow: 2px 3px 3px rgba(0,0,255, 0.25);
+  text-shadow: 2px 3px 3px rgba(0, 0, 255, 0.25);
 }
 
 .pic-frame {
@@ -65,14 +62,14 @@ body {
   width: 200px;
   height: 200px;
 }
-.homepage__revisited{
+.homepage__revisited {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
-.homepage__dashboard--link:hover{
+.homepage__dashboard--link:hover {
   border: 3px solid red;
   box-shadow: 5px 59x 145px rgba(255, 0, 0, 0.5);
 }
@@ -83,14 +80,17 @@ body {
 
   height: 25px;
   width: 15vw;
-
 }
-.carousel__pic-frame{
+.carousel__pic-frame {
   height: 25%;
 }
- img {
-   border: 1px solid #ddd;
-   border-radius: 4px;
-   padding: 2px;
-   width: 295px;
- }
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 2px;
+  height: 290px;
+  width: 290px;
+}
+
+@media screen and (min-width: 480px) {
+}

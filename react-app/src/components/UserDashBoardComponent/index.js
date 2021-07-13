@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCities } from "../../store/barbershop";
-import {getAppointment, getAppointments, deleteAppointment} from "../../store/appointments"
-import photo from './headshot2.jpg'
+import {
+  getAppointment,
+  getAppointments,
+  deleteAppointment,
+} from "../../store/appointments";
+import photo from "./headshot2.jpg";
 import MyReviews from "../Reviews";
-
 
 import "./UserDashBoard.css";
 
@@ -15,7 +18,6 @@ export default function UserDashBoard() {
   const cities = useSelector((state) => state.barbershops.cities);
   const [user, setUser] = useState({});
   const [city, setCity] = useState(0);
-
 
   // Notice we use useParams here instead of getting the params
   // From props.
@@ -48,8 +50,8 @@ export default function UserDashBoard() {
   }
 
   const onDelete = async (barberId, appointmentId) => {
-    await dispatch(deleteAppointment(barberId, appointmentId))
-  }
+    await dispatch(deleteAppointment(barberId, appointmentId));
+  };
 
   const onSubmit = () => {
     if (city === 0) {
@@ -62,60 +64,71 @@ export default function UserDashBoard() {
   return (
     <div className="userdash__container">
       <header>
-        <h2 id="userdash__title" className="userdash__title">{user.firstname}'s User Dashboard</h2>
+        <h2 id="userdash__title" className="userdash__title">
+          {user.firstname}'s User Dashboard
+        </h2>
       </header>
       <main>
-
         <section className="glass">
-        <div className="userdash__user-profile">
-          <img id="user-profile-pic" src={photo} alt="" ></img>
-          {user.firstname} {user.lastname}
-        </div>
-        <div className="userdash__features">
-
-          <div className="userdash__citySearch">
-            <div className="city-container">
-              <label><h3>Find a Barbershop</h3> </label>
-              <select
-                value={city}
-                onChange={(e) => {
-                  setCity(e.target.value);
-                }}
-              >
-                <option value={0}>Please choose a city</option>
-                {cities &&
-                  Object.values(cities).map((city) => {
-                    return <option value={city}>{city}</option>;
-                  })}
-              </select>
-              <button className="userdash__search-submit" onClick={onSubmit}> Submit </button>
+          <div className="userdash__user-profile">
+            <img id="user-profile-pic" src={photo} alt=""></img>
+            {user.firstname} {user.lastname}
+          </div>
+          <div className="userdash__features">
+            {/* <div className="userdash__citySearch">
+              <div className="city-container">
+                <label>
+                  <h3>Find a Barbershop</h3>{" "}
+                </label>
+                <select
+                  value={city}
+                  onChange={(e) => {
+                    setCity(e.target.value);
+                  }}
+                >
+                  <option value={0}>Please choose a city</option>
+                  {cities &&
+                    Object.values(cities).map((city) => {
+                      return <option value={city}>{city}</option>;
+                    })}
+                </select>
+                <button className="userdash__search-submit" onClick={onSubmit}>
+                  {" "}
+                  Submit{" "}
+                </button>
+              </div>
+            </div> */}
+            <div className="userdash__review-container">
+              <h1>My Recent Reviews</h1>
+              <MyReviews />
+              <h1>Upcomings Appointments</h1>
             </div>
-          </div>
-          <div className="userdash__review-container">
-            <h1>My Recent Reviews</h1>
-            <MyReviews />
-            <h1>Upcomings Appointments</h1>
-          </div>
 
-          <div className="userdash__appointments-container">
-
-            <div className="userdash__appt-upcoming">
-              {user.appointments?.map((appointment) =>{
-                  const event = new Date(appointment.datetime)
-                  console.log(appointment.barber)
-                  return <div>
-                    {`Your next appointment is scheduled for ${event.toDateString()}`}
-                    <button className="userdash__AppCancel" type="button" onClick={() => onDelete(appointment.barber, appointment.id)}>Cancel</button>
+            <div className="userdash__appointments-container">
+              <div className="userdash__appt-upcoming">
+                {user.appointments?.map((appointment) => {
+                  const event = new Date(appointment.datetime);
+                  console.log(appointment.barber);
+                  return (
+                    <div>
+                      {`Your next appointment is scheduled for ${event.toDateString()}`}
+                      <button
+                        className="userdash__AppCancel"
+                        type="button"
+                        onClick={() =>
+                          onDelete(appointment.barber, appointment.id)
+                        }
+                      >
+                        Cancel
+                      </button>
                     </div>
-              })}
-
+                  );
+                })}
+              </div>
             </div>
-
           </div>
-        </div>
         </section>
       </main>
-
     </div>
   );
 }

@@ -1,22 +1,30 @@
 .app-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 35%;
-    width: 45%;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 35%;
+  width: 45%;
+  padding: 10px;
 }
 
 .calendar {
-    font-size: 25px;
-    cursor: pointer;
+  font-size: 25px;
+  cursor: pointer;
 }
 
-button{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
 
-button:hover{
-    background-color: red;
-    border: 2px solid white;
+button:hover {
+  background-color: red;
+  border: 2px solid white;
+}
+
+.appt-labels {
+  font-size: 20px;
+}
+
+.booking-button {
+  font-size: 20px;
 }

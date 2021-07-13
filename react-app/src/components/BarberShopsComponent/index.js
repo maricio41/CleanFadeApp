@@ -28,7 +28,15 @@ export default function BarberShops() {
               to={`/barbershops/${barbershop.id}`}
               exact={true}
             >
-              {barbershop.name}
+              <div className="shop-entry">
+                <div className="shop-entry__name">{barbershop.name}</div>
+                <div className="shop-entry__hours">
+                  {barbershop.operationHours}
+                </div>
+                <div className="shop-entry__phone">
+                  {barbershop.phoneNumber}
+                </div>
+              </div>
             </NavLink>
           </div>
         ))}
