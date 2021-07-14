@@ -101,7 +101,9 @@ const NavBar = () => {
             }}
           >
             <div style={{ paddingRight: "15px" }}>
-              Welcome, {user.firstname}
+              <NavLink className="user-link" to={`/users/${user.id}`}>
+                Welcome, {user.firstname}
+              </NavLink>
             </div>
             <LogoutButton />
           </div>

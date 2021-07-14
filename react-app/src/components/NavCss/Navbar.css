@@ -22,3 +22,10 @@
   justify-content: space-between;
   padding: 0 15px;
 }
+
+.user-link {
+  text-decoration: none;
+  color: #ff9505;
+  font-family: "Quicksand";
+  font-size: 20px;
+}
