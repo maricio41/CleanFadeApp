@@ -24,7 +24,14 @@ def get_form(id):
     if form.validate_on_submit():
         date_time = f"{form.data['date']} {form.data['time']}"
         dt = datetime.strptime(date_time, '%Y-%m-%d %H:%M')
-        app = Appointment(datetime = dt, userId = current_user.id, barberId = id)
+
+        app = Appointment(
+            firstName=form.data['firstName'],
+            lastName=form.data['lastName'],
+            datetime = dt,
+            userId = current_user.id,
+            barberId = id
+            )
         db.session.add(app)
         db.session.commit()
         return app.to_dict()

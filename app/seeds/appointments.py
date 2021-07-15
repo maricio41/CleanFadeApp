@@ -5,7 +5,7 @@ import datetime
 def seed_appointments():
 
     data = [
-             Appointment(datetime = datetime.datetime.utcnow(), userId = 1, barberId = 1)
+             Appointment(firstName = 'Demo', lastName = 'Userton', datetime = datetime.datetime.utcnow(), userId = 1, barberId = 1)
            ]
     for appointment in data:
         db.session.add(appointment)

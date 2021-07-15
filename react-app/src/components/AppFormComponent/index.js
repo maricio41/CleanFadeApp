@@ -16,8 +16,8 @@ export default function AppForm() {
   const barbershop = useSelector((state) => state.barbershops.barbershop);
   const [selectBarber, setSelectBarber] = useState(0);
   const [date, setDatetime] = useState(new Date());
-  // const [min, setMin] = useState();
-  // const [max, setMax] = useState();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [time, setTime] = useState("10:00");
 
   useEffect(() => {
@@ -35,15 +35,46 @@ export default function AppForm() {
       return;
     }
 
-    await dispatch(addNewAppointment(selectBarber, { date, time }));
+    await dispatch(
+      addNewAppointment(selectBarber, { firstName, lastName, date, time })
+    );
     window.alert("Appointment Created!");
     history.push(`/users/${user.id}`);
   };
-
+  const updateFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
+  };
   return (
     <div className="app-container">
       <h2>Book an Appointment</h2>
       <form className="app-form" onSubmit={handleSubmit}>
+        <label className="name-inputs" for="firstname-input">
+          First Name
+        </label>
+        <input
+          className="first-name"
+          name="first-name"
+          placeholder="First Name"
+          value={firstName}
+          type="text"
+          onChange={updateFirstName}
+        />
+
+        <label className="name-inputs" for="lastname-input">
+          Last Name
+        </label>
+        <input
+          className="last-name"
+          name="last-name"
+          placeholder="Last Name"
+          value={lastName}
+          type="text"
+          onChange={updateLastName}
+        />
+
         <label className="appt-labels" for="date-selector">
           Select a Date
         </label>
