@@ -1,3 +1,4 @@
+from app.models.barbershop import BarberShop
 from flask import Blueprint, jsonify, session, request
 from flask_login import current_user
 from ..models.db import db
@@ -61,3 +62,36 @@ def delete_appointments(barberId, appointmentId):
     db.session.delete(appointment)
     db.session.commit()
     return {"message": 'Delete Success'}
+
+@barber_routes.route("/<string:date>/available-barbers/<int:barbershopId>")
+def get_barbers(date, barbershopId):
+    barbers = Barber.query.filter(Barber.barbershopId == barbershopId)
+    available_barbers = {}
+    for barber in barbers:
+        available_barbers[barber.id] = {
+           "times": [
+                "10:00",
+                "11:00",
+                "12:00",
+                "13:00",
+                "14:00",
+                "15:00",
+                "16:00",
+                "17:00",
+            ],
+            "nickname": barber.nickname
+        }
+
+        for appointment in barber.appointments:
+            print(appointment.datetime.split(" ")[0])
+            if appointment.datetime.split(" ")[0] == date:
+                available_barbers[barber.id]["times"].pop(available_barbers[barber.id]["times"].index(appointment.datetime.split(" ")[1]))
+
+    return {
+        "barbers": available_barbers
+    }
+
+
+@barber_routes.route('/<int:barberId>/availability/<string:date>')
+def get_availability():
+    pass

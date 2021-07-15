@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 // import DateTimePicker from "react-datetime-picker";
-import { addNewAppointment, getBarberTimes } from "../../store/appointments";
+import {
+  addNewAppointment,
+  getBarberTimes,
+  getAvailableBarbers,
+} from "../../store/appointments";
 
 import "./AppForm.css";
 import "./AppFormII.css";
@@ -16,7 +20,7 @@ export default function AppForm() {
   const barbershop = useSelector((state) => state.barbershops.barbershop);
   const availability = useSelector((state) => state.appointments.availability);
   const [selectBarber, setSelectBarber] = useState(0);
-  const [date, setDatetime] = useState(new Date());
+  const [date, setDatetime] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [time, setTime] = useState("10:00");
@@ -51,6 +55,11 @@ export default function AppForm() {
   const handleSelectBarber = (e) => {
     setSelectBarber(e.target.value);
     dispatch(getBarberTimes(e.target.value, date));
+  };
+  const handleDate = (e) => {
+    setDatetime(e.target.value);
+    // console.log(typeof barbershopId);
+    dispatch(getAvailableBarbers(e.target.value, Number(barbershopId)));
   };
 
   return (
@@ -88,30 +97,31 @@ export default function AppForm() {
           className="calendar"
           type="date"
           value={date}
-          onChange={(e) => {
-            setDatetime(e.target.value);
-          }}
+          onChange={handleDate}
         />
-
-        <label className="appt-labels" for="barber-selector">
-          {" "}
-          Choose a Barber
-        </label>
-        <select
-          value={selectBarber}
-          onChange={handleSelectBarber}
-          name="barbers"
-          id="barber-selector"
-        >
-          <option value={0}>Please select a barber</option>
-          {barbershop.barbers.map((barber) => {
-            return (
-              <option value={barber.id} key={barber.id}>
-                {barber.nickname}
-              </option>
-            );
-          })}
-        </select>
+        {date ? (
+          <>
+            <label className="appt-labels" for="barber-selector">
+              {" "}
+              Choose a Barber
+            </label>
+            <select
+              value={selectBarber}
+              onChange={handleSelectBarber}
+              name="barbers"
+              id="barber-selector"
+            >
+              <option value={0}>Please select a barber</option>
+              {barbershop.barbers.map((barber) => {
+                return (
+                  <option value={barber.id} key={barber.id}>
+                    {barber.nickname}
+                  </option>
+                );
+              })}
+            </select>
+          </>
+        ) : null}
         {selectBarber ? (
           <>
             <label className="appt-labels" for="time-selector">

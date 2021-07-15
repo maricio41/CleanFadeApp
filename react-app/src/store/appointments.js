@@ -2,6 +2,7 @@ const LOAD_APPOINTMENTS = "appointments/LOAD_APPOINTMENTS";
 const LOAD_APPOINTMENT = "appointments/LOAD_APPOINTMENT";
 const REMOVE_APPOINTMENT = "appointments/REMOVE_APPOINTMENT";
 const LOAD_APPT_TIMES = "appointment/LOAD_APPT_TIMES";
+const LOAD_BARBERS = "appointments/LOAD_BARBERS";
 
 const loadAppointments = (appointments) => {
   return {
@@ -28,6 +29,13 @@ const loadAppointmentTimes = (availableTimes) => {
   return {
     type: LOAD_APPT_TIMES,
     payload: availableTimes,
+  };
+};
+
+const loadBarbers = (barber) => {
+  return {
+    type: LOAD_BARBERS,
+    payload: barber,
   };
 };
 
@@ -85,8 +93,8 @@ export const addNewAppointment = (barberId, payload) => async (dispatch) => {
   }
 };
 
-export const getBarberTimes = (barberId) => async (dispatch) => {
-  const response = await fetch(`/api/barbers/${barberId}/availability`);
+export const getBarberTimes = (barberId, date) => async (dispatch) => {
+  const response = await fetch(`/api/barbers/${barberId}/availability/${date}`);
   if (response.ok) {
     const { availability } = await response.json();
     dispatch(loadAppointmentTimes(availability));
@@ -95,7 +103,20 @@ export const getBarberTimes = (barberId) => async (dispatch) => {
   }
 };
 
-const initialState = { appointment: null, availability: null };
+export const getAvailableBarbers = (date, barbershopId) => async (dispatch) => {
+  const response = await fetch(
+    `/api/barbers/${date}/available-barbers/${barbershopId}`
+  );
+  if (response.ok) {
+    const { barbers } = await response.json();
+    console.log(barbers);
+    // dispatch(loadBarbers(barbers));
+  } else {
+    throw response;
+  }
+};
+
+const initialState = { appointment: null, barbers: null, availability: null };
 
 const appointmentReducer = (state = initialState, action) => {
   // let { appointment } = action;
@@ -116,6 +137,9 @@ const appointmentReducer = (state = initialState, action) => {
     case LOAD_APPT_TIMES:
       newState = Object.assign({}, state);
       newState.availabilty = action.payload;
+    case LOAD_BARBERS:
+      newState = Object.assign({}, state);
+      newState.barbers = action.payload;
     default:
       return state;
   }
