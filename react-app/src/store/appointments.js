@@ -1,7 +1,7 @@
 const LOAD_APPOINTMENTS = "appointments/LOAD_APPOINTMENTS";
 const LOAD_APPOINTMENT = "appointments/LOAD_APPOINTMENT";
 const REMOVE_APPOINTMENT = "appointments/REMOVE_APPOINTMENT";
-const LOAD_APPT_TIMES = "appointment/LOAD_APPT_TIMES";
+
 const LOAD_BARBERS = "appointments/LOAD_BARBERS";
 
 const loadAppointments = (appointments) => {
@@ -22,13 +22,6 @@ const removeAppointment = (appointment) => {
   return {
     type: REMOVE_APPOINTMENT,
     payload: appointment,
-  };
-};
-
-const loadAppointmentTimes = (availableTimes) => {
-  return {
-    type: LOAD_APPT_TIMES,
-    payload: availableTimes,
   };
 };
 
@@ -93,16 +86,6 @@ export const addNewAppointment = (barberId, payload) => async (dispatch) => {
   }
 };
 
-export const getBarberTimes = (barberId, date) => async (dispatch) => {
-  const response = await fetch(`/api/barbers/${barberId}/availability/${date}`);
-  if (response.ok) {
-    const { availability } = await response.json();
-    dispatch(loadAppointmentTimes(availability));
-  } else {
-    throw response;
-  }
-};
-
 export const getAvailableBarbers = (date, barbershopId) => async (dispatch) => {
   const response = await fetch(
     `/api/barbers/${date}/available-barbers/${barbershopId}`
@@ -110,7 +93,7 @@ export const getAvailableBarbers = (date, barbershopId) => async (dispatch) => {
   if (response.ok) {
     const { barbers } = await response.json();
     console.log(barbers);
-    // dispatch(loadBarbers(barbers));
+    dispatch(loadBarbers(barbers));
   } else {
     throw response;
   }
@@ -134,12 +117,10 @@ const appointmentReducer = (state = initialState, action) => {
       newState = Object.assign({}, state);
       newState.appointment = action.payload;
       return newState;
-    case LOAD_APPT_TIMES:
-      newState = Object.assign({}, state);
-      newState.availabilty = action.payload;
     case LOAD_BARBERS:
       newState = Object.assign({}, state);
       newState.barbers = action.payload;
+      return newState;
     default:
       return state;
   }

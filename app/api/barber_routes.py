@@ -79,7 +79,8 @@ def get_barbers(date, barbershopId):
                 "16:00",
                 "17:00",
             ],
-            "nickname": barber.nickname
+            "nickname": barber.nickname,
+            "id": barber.id
         }
 
         for appointment in barber.appointments:
@@ -90,8 +91,3 @@ def get_barbers(date, barbershopId):
     return {
         "barbers": available_barbers
     }
-
-
-@barber_routes.route('/<int:barberId>/availability/<string:date>')
-def get_availability():
-    pass

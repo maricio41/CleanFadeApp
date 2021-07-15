@@ -4,7 +4,6 @@ import { useParams, useHistory } from "react-router-dom";
 // import DateTimePicker from "react-datetime-picker";
 import {
   addNewAppointment,
-  getBarberTimes,
   getAvailableBarbers,
 } from "../../store/appointments";
 
@@ -18,12 +17,14 @@ export default function AppForm() {
   const { barbershopId } = useParams();
   const user = useSelector((state) => state.session.user);
   const barbershop = useSelector((state) => state.barbershops.barbershop);
-  const availability = useSelector((state) => state.appointments.availability);
+
+  const barbers = useSelector((state) => state.appointments.barbers);
   const [selectBarber, setSelectBarber] = useState(0);
   const [date, setDatetime] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [time, setTime] = useState("10:00");
+  const [timeslot, setTimeslot] = useState("");
 
   useEffect(() => {
     dispatch(getBarberShop(Number(barbershopId)));
@@ -54,12 +55,12 @@ export default function AppForm() {
   };
   const handleSelectBarber = (e) => {
     setSelectBarber(e.target.value);
-    dispatch(getBarberTimes(e.target.value, date));
+    setTimeslot(barbers[e.target.value].times);
   };
-  const handleDate = (e) => {
+  const handleDate = async (e) => {
     setDatetime(e.target.value);
     // console.log(typeof barbershopId);
-    dispatch(getAvailableBarbers(e.target.value, Number(barbershopId)));
+    await dispatch(getAvailableBarbers(e.target.value, Number(barbershopId)));
   };
 
   return (
@@ -99,7 +100,7 @@ export default function AppForm() {
           value={date}
           onChange={handleDate}
         />
-        {date ? (
+        {barbers ? (
           <>
             <label className="appt-labels" for="barber-selector">
               {" "}
@@ -112,13 +113,14 @@ export default function AppForm() {
               id="barber-selector"
             >
               <option value={0}>Please select a barber</option>
-              {barbershop.barbers.map((barber) => {
-                return (
-                  <option value={barber.id} key={barber.id}>
-                    {barber.nickname}
-                  </option>
-                );
-              })}
+              {barbers &&
+                Object.values(barbers).map((barber) => {
+                  return (
+                    <option value={barber.id} key={barber.id}>
+                      {barber.nickname}
+                    </option>
+                  );
+                })}
             </select>
           </>
         ) : null}
@@ -135,21 +137,28 @@ export default function AppForm() {
               id="time-selector"
             >
               <option value=""></option>
-              {availability &&
-                availability.map((time) => {
-                  return (
-                    // <option value={time.}></option>
-                    null
-                  );
+              {timeslot &&
+                timeslot.map((time) => {
+                  if (time === "12:00") {
+                    return <option value={"12:00"}>12:00 PM</option>;
+                  }
+                  if (time === "13:00") {
+                    return <option value={"13:00"}>01:00 PM</option>;
+                  }
+                  if (time === "14:00") {
+                    return <option value={"14:00"}>02:00 PM</option>;
+                  }
+                  if (time === "15:00") {
+                    return <option value={"15:00"}>03:00 PM</option>;
+                  }
+                  if (time === "16:00") {
+                    return <option value={"16:00"}>04:00 PM</option>;
+                  }
+                  if (time === "17:00") {
+                    return <option value={"17:00"}>05:00 PM</option>;
+                  }
+                  return <option value={time}>{`${time} AM`}</option>;
                 })}
-              <option value={"10:00"}>10:00 AM</option>
-              <option value={"11:00"}>11:00 AM</option>
-              <option value={"12:00"}>12:00 PM</option>
-              <option value={"13:00"}>01:00 PM</option>
-              <option value={"14:00"}>02:00 PM</option>
-              <option value={"15:00"}>03:00 PM</option>
-              <option value={"16:00"}>04:00 PM</option>
-              <option value={"17:00"}>05:00 PM</option>
             </select>
           </>
         ) : null}
