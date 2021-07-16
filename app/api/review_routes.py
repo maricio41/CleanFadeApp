@@ -22,12 +22,12 @@ def get_review(id):
     review = Review.query.get(id)
     return review.to_dict()
 
-@review_routes.route('/<int:id>', methods=["PATCH"])
+@review_routes.route('/<int:id>/reviews/edit', methods=["PATCH"])
 def update_review(id):
     review = Review.query.get(id)
     if review:
-        review.reviewBody = request.form['reviewBody']
-        review.rating = request.form['rating']
+        review.reviewBody = request.json['reviewBody']
+        review.rating = request.json['rating']
         db.session.add(review)
         db.session.commit()
         return f'{Review} was successfully updated'

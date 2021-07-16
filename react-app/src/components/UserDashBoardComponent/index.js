@@ -16,6 +16,7 @@ export default function UserDashBoard() {
   const dispatch = useDispatch();
   const history = useHistory();
   const cities = useSelector((state) => state.barbershops.cities);
+  const appointments = useSelector((state) => state.session.user.appointments);
   const [user, setUser] = useState({});
   const [city, setCity] = useState(0);
 
@@ -106,7 +107,7 @@ export default function UserDashBoard() {
 
             <div className="userdash__appointments-container">
               <div className="userdash__appt-upcoming">
-                {user.appointments?.map((appointment) => {
+                {appointments?.map((appointment) => {
                   const event = new Date(appointment.datetime);
                   console.log(appointment.barber);
                   return (

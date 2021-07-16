@@ -1,3 +1,5 @@
+import { removeUserAppointment } from "./session";
+
 const LOAD_APPOINTMENTS = "appointments/LOAD_APPOINTMENTS";
 const LOAD_APPOINTMENT = "appointments/LOAD_APPOINTMENT";
 const REMOVE_APPOINTMENT = "appointments/REMOVE_APPOINTMENT";
@@ -64,7 +66,7 @@ export const deleteAppointment =
     );
     if (response.ok) {
       const appointment = await response.json();
-      dispatch(removeAppointment(appointmentId));
+      dispatch(removeUserAppointment(appointmentId));
     } else {
       throw response;
     }
@@ -99,7 +101,7 @@ export const getAvailableBarbers = (date, barbershopId) => async (dispatch) => {
   }
 };
 
-const initialState = { appointment: null, barbers: null, availability: null };
+const initialState = { appointment: null, barbers: null };
 
 const appointmentReducer = (state = initialState, action) => {
   // let { appointment } = action;

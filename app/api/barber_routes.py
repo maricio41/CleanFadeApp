@@ -23,13 +23,13 @@ def get_form(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        date_time = f"{form.data['date']} {form.data['time']}"
-        dt = datetime.strptime(date_time, '%Y-%m-%d %H:%M')
-
+        # date_time = f"{form.data['date']} {form.data['time']}"
+        # dt = datetime.strptime(date_time, '%Y-%m-%d %H:%M')
+        # print(f'{request.json["date"]} {request.json["time"]}', "TEST")
         app = Appointment(
-            firstName=form.data['firstName'],
-            lastName=form.data['lastName'],
-            datetime = dt,
+            firstName=request.json['firstName'],
+            lastName=request.json['lastName'],
+            datetime = f'{request.json["date"]} {request.json["time"]}',
             userId = current_user.id,
             barberId = id
             )

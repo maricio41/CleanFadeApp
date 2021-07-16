@@ -150,10 +150,10 @@ const reviewsReducer = (state = initialState, action) => {
       newState.review = action.payload
       return newState;
 
-    case REMOVE_REVIEW:
-      newState = Object.assign({}, state);
-      newState.review = action.payload
-      return newState;
+    // case REMOVE_REVIEW:
+    //   newState = Object.assign({}, state);
+    //   newState.review = action.payload
+    //   return newState;
     case REMOVE_USER_REVIEW:
       newState = Object.assign({}, state);
       delete newState.reviews.userReviews[action.payload]

@@ -22,18 +22,15 @@ function MyReviews() {
   };
 
   const onDelete = async (reviewId) => {
-
     await dispatch(deleteUserReview(reviewId));
   };
-  
+
   if (!reviews.userReviews) {
     return null;
   }
 
   return (
     <div className="review-container">
-
-
       {Object.values(reviews?.userReviews).map((review) => (
         <div className="rev-quote-block">
           <div className="">{setStarRating(review.rating)}</div>
@@ -41,8 +38,12 @@ function MyReviews() {
           {/* <button className="edit-button" type="button">
             Edit
           </button> */}
-          <button className="delete-button" type="button" onClick={() => onDelete(review.id)}>
-            Delete
+          <button
+            className="delete-button"
+            type="button"
+            onClick={() => onDelete(review.id)}
+          >
+            Delete Review
           </button>
         </div>
       ))}
