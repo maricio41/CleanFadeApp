@@ -73,6 +73,7 @@ export default function UserDashBoard() {
         <section className="glass">
           <div className="userdash__user-profile">
             <img id="user-profile-pic" src={photo} alt=""></img>
+            <div className="profile-info"></div>
             {user.firstname} {user.lastname}
           </div>
           <div className="userdash__features">
