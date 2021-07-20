@@ -36,16 +36,16 @@
   font-family: cursive;
   font-weight: bold;
   padding-left: 12px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+  /* -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white; */
 }
 
 #user-profile-pic {
   border-radius: 50%;
   height: 250px;
   padding-left: 12px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+  /* -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white; */
 }
 
 .userdash__features {
@@ -55,8 +55,8 @@
   flex-direction: column;
   justify-content: space-around;
   font-size: 25px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+  /* -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white; */
 }
 
 /* .city-container {
@@ -115,9 +115,9 @@ select {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 32%;
+  height: 35%;
   width: 89%;
-  margin-left: 24px;
+  margin-left: 48px;
   font-size: 20px;
   border: 2px solid rgba(0, 0, 0, 0.025);
   border-radius: 10px;
@@ -127,8 +127,25 @@ select {
 }
 
 .userdash__appt-upcoming {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: white;
+
   padding: 10px;
+}
+
+.single-appointment {
+  display: flex;
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 20px;
+  width: 500px;
+}
+
+.userdash__AppCancel {
+  font-size: 18px;
 }
 
 .user-profile-pic {

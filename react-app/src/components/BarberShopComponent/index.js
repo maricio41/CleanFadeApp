@@ -44,7 +44,7 @@ export default function Barbershop() {
         )}
         <div className="feature-links__container">
           <NavLink
-            to={`/appointments/${barbershop.id}`}
+            to={`/appointments/${barbershopId}`}
             className="appt-btn"
             onClick={onSubmit}
           >

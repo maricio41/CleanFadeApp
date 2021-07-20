@@ -33,8 +33,8 @@ function MyReviews() {
     <div className="review-container">
       {Object.values(reviews?.userReviews).map((review) => (
         <div className="rev-quote-block">
-          <div className="">{setStarRating(review.rating)}</div>
-          <div className="">{review.reviewBody}</div>
+          <div className="star-rating">{setStarRating(review.rating)}</div>
+          <div className="review-body">{review.reviewBody}</div>
           {/* <button className="edit-button" type="button">
             Edit
           </button> */}

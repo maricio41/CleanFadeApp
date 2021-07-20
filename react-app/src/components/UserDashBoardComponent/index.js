@@ -111,8 +111,10 @@ export default function UserDashBoard() {
                   const event = new Date(appointment.datetime);
                   console.log(appointment.barber);
                   return (
-                    <div>
-                      {`Your next appointment is scheduled for ${event.toDateString()}`}
+                    <div className="single-appointment">
+                      {`Your have an appointment on ${event.toDateString()} with ${
+                        appointment.actualBarber.firstname
+                      }`}
                       <button
                         className="userdash__AppCancel"
                         type="button"
