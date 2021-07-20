@@ -8,8 +8,8 @@
 }
 .glass {
   background: white;
-  min-height: 60vh;
-  width: 780px;
+  min-height: 70vh;
+  width: 80vw;
   background: linear-gradient(
     to right top,
     rgba(0, 0, 0, 0.7),
@@ -21,7 +21,7 @@
 .userdash__title {
   padding: 1rem;
   grid-column: 2/ 4;
-  font-size: 3vw;
+  font-size: 2vw;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
 }
@@ -98,7 +98,7 @@ select {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2px;
+  margin-top: 1px;
   height: 70%;
   width: 100%;
   margin-right: 10px;

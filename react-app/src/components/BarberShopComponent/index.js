@@ -22,7 +22,7 @@ export default function Barbershop() {
   //   setBarberId(barberId);
   // };
   const onSubmit = () => {
-    history.push(`/appointments/${barbershopId}`);
+    history.push(`/appointments/${barbershop.id}`);
   };
 
   return (
