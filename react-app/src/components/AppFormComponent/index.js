@@ -112,7 +112,7 @@ export default function AppForm() {
               name="barbers"
               id="barber-selector"
             >
-              <option value={0}>Please select a barber</option>
+              <option value={0}>Please select a barber!</option>
               {barbers &&
                 Object.values(barbers).map((barber) => {
                   return (
@@ -127,7 +127,7 @@ export default function AppForm() {
         {selectBarber ? (
           <>
             <label className="appt-labels" for="time-selector">
-              Select a time
+              Select a time!
             </label>
             <select
               value={time}
