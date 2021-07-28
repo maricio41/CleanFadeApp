@@ -30,7 +30,7 @@ export default function AppForm() {
     dispatch(getBarberShop(Number(barbershopId)));
   }, [barbershopId, dispatch]);
   if (!barbershop) {
-    return <h1>Loading....</h1>;
+    return <h1>Loading...</h1>;
   }
 
   const handleSubmit = async (e) => {
