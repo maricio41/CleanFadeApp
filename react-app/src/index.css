@@ -22,7 +22,7 @@ html {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    font-size: 1.9em;
+
     /* height: auto; */
     width: 30vw;
     background-color: rgba(255, 255, 255, 0.25);
@@ -42,7 +42,7 @@ html {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    font-size: 5vw;
+
     /* height: auto; */
     width: 30vw;
     background-color: rgba(255, 255, 255, 0.25);

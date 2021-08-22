@@ -32,16 +32,20 @@ const LoginForm = () => {
   }
 
   return (
-    <div style={{backgroundImage: "url('../../')"}} className="loginform__container">
+    <div className="loginform__container">
       <form className="loginform__actual" onSubmit={onLogin}>
-        <div>
+        <div className="login__error-container">
           {errors.map((error) => (
-            <div>{error}</div>
+            <div className="error-notification">{error}</div>
           ))}
         </div>
         <div>
-          <label htmlFor="email">Email</label>
+          <div className="login-title">
+            <h1>Login</h1>
+          </div>
+
           <input
+            className="login-inputs"
             name="email"
             type="text"
             placeholder="Email"
@@ -50,16 +54,18 @@ const LoginForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">Password</label>
           <input
+            className="login-inputs"
             name="password"
             type="password"
             placeholder="Password"
             value={password}
             onChange={updatePassword}
           />
-          <button type="submit">Login</button>
         </div>
+        <button className="login-submit" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
