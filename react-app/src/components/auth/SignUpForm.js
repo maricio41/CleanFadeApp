@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
-import "./SignUpForm.css"
+import "./SignUpForm.css";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
   const user = useSelector((state) => state.session.user);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -27,7 +27,6 @@ const SignUpForm = () => {
     if (password === repeatPassword) {
       await dispatch(
         signUp({
-
           username,
           email,
           password,
@@ -36,7 +35,8 @@ const SignUpForm = () => {
           age,
           avatarUrl,
           preferredHairStyle,
-        }));
+        })
+      );
     }
   };
 
@@ -71,15 +71,14 @@ const SignUpForm = () => {
     setPreferredHairStyle(e.target.value);
   };
 
-
-
   return (
     <div className="form__container">
-      <h2>Sign on up!</h2>
-      <form onSubmit={onSignUp}>
+      <form className="signup-form" onSubmit={onSignUp}>
+        <h2>SIGN-UP FORM</h2>
         <div>
-          <label>User Name</label>
           <input
+            className="signup-input"
+            placeHolder="Username"
             type="text"
             name="username"
             onChange={updateUsername}
@@ -87,8 +86,9 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <label>Email</label>
           <input
+            className="signup-input"
+            placeHolder="Email"
             type="text"
             name="email"
             onChange={updateEmail}
@@ -96,8 +96,9 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <label>Password</label>
           <input
+            className="signup-input"
+            placeHolder="Enter Password"
             type="password"
             name="password"
             onChange={updatePassword}
@@ -105,8 +106,9 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <label>Repeat Password</label>
           <input
+            className="signup-input"
+            placeHolder="Repeat Password"
             type="password"
             name="repeat_password"
             onChange={updateRepeatPassword}
@@ -115,8 +117,9 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <label>First Name</label>
           <input
+            className="signup-input"
+            placeHolder="First Name"
             type="text"
             name="firstname"
             onChange={updateFirstName}
@@ -125,8 +128,9 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <label>Last Name</label>
           <input
+            className="signup-input"
+            placeHolder="Last Name"
             type="text"
             name="lastname"
             onChange={updateLastName}
@@ -135,8 +139,9 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <label>Age</label>
           <input
+            className="signup-input"
+            placeHolder="Age"
             type="number"
             name="age"
             onChange={updateAge}
@@ -145,8 +150,9 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <label>Avatar Url</label>
           <input
+            className="signup-input"
+            placeHolder="AvatarUrl"
             type="text"
             name="avatarUrl"
             onChange={updateAvatarUrl}
@@ -155,8 +161,9 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <label>Preferred Hair Style</label>
           <input
+            className="signup-input"
+            placeHolder="Preferred Hair-Style"
             type="text"
             name="preferredHairStyle"
             onChange={updatePreferredHairStyle}
@@ -164,7 +171,9 @@ const SignUpForm = () => {
             required={false}
           ></input>
         </div>
-        <button type="submit">Sign Up</button>
+        <button id="signup-submit" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
