@@ -2,6 +2,7 @@
   border: 1px solid rgba(0, 0, 0, 0.25);
   background-color: #242f40;
   height: 60px;
+
   font-family: "Quicksand";
   font-size: 20px;
   color: #ff9505;
@@ -21,6 +22,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 15px;
+  height: 100%;
 }
 
 .user-link {
