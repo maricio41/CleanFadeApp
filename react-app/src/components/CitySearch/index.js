@@ -36,8 +36,12 @@ const CitySearch = () => {
       >
         <option value={0}>Please choose a city</option>
         {cities &&
-          Object.values(cities).map((city) => {
-            return <option value={city}>{city}</option>;
+          Object.values(cities).map((city, i) => {
+            return (
+              <option value={city} key={i}>
+                {city}
+              </option>
+            );
           })}
       </select>
       <button className="search-submit" onClick={onSubmit}>

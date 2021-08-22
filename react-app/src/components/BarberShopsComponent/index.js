@@ -16,24 +16,26 @@ export default function BarberShops() {
 
   return (
     <main className="shops__container">
+      <h2 className="shops-title">
+        Barber Shops for the city of {city}, Georgia
+      </h2>
       <section className="shops__container-glass">
-        <h2 className="shops-title">
-          Barber Shops for the city of {city}, Georgia
-        </h2>
-        {shops?.map((barbershop) => (
-          <div className="shop-card">
-            {/* <img src={shoppic} className="shop-img" alt="shop_image"/> */}
+        {shops?.map((barbershop, i) => (
+          <div className="shop-card" key={`shopcard-${i}`}>
             <NavLink
               className="barbershop-link"
               to={`/barbershops/${barbershop.id}`}
               exact={true}
+              key={`barbershop-link-${i}`}
             >
-              <div className="shop-entry">
-                <div className="shop-entry__name">{barbershop.name}</div>
-                <div className="shop-entry__hours">
+              <div className="shop-entry" key={i}>
+                <div className="shop-entry__name" key={`shopname-${i}`}>
+                  {barbershop.name}
+                </div>
+                <div className="shop-entry__hours" key={`shophours-${i}`}>
                   {barbershop.operationHours}
                 </div>
-                <div className="shop-entry__phone">
+                <div className="shop-entry__phone" key={`shopphone-${i}`}>
                   {barbershop.phoneNumber}
                 </div>
               </div>
