@@ -10,7 +10,7 @@
   margin-top: 50px;
   border: 2px solid rgba(0, 0, 0, 0.025);
   box-shadow: 5px 4px 25px black;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(146, 119, 119, 0.5);
   height: 764px;
   width: 505px;
   -webkit-text-stroke-width: 1px;
@@ -42,8 +42,7 @@
   font-family: cursive;
   border-radius: 15px;
   color: black;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+
   text-decoration: none;
 }
 .review-btn {
@@ -57,8 +56,7 @@
   font-family: cursive;
   color: black;
   border-radius: 15px;
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: white;
+
   text-decoration: none;
 }
 

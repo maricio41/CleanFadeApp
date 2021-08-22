@@ -65,7 +65,7 @@ export default function AppForm() {
 
   return (
     <div className="app-container">
-      <h2>Book an Appointment</h2>
+      <h2 className="app-title">Book an Appointment</h2>
       <form className="app-form" onSubmit={handleSubmit}>
         <label className="name-inputs" for="firstname-input">
           First Name

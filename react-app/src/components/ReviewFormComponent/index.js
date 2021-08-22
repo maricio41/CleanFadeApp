@@ -1,4 +1,4 @@
-import React, {useState, useEffect}from 'react'
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { postReview } from "../../store/reviews";
@@ -24,23 +24,23 @@ function ReviewForm() {
     return <h1>Loading...</h1>;
   }
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(selectBarber === 0){
-      window.alert("Please select a barber!")
-      return
+    if (selectBarber === 0) {
+      window.alert("Please select a barber!");
+      return;
     }
-    await dispatch(postReview(selectBarber, { reviewBody, rating}));
-    window.alert("Review Created!")
+    await dispatch(postReview(selectBarber, { reviewBody, rating }));
+    window.alert("Review Created!");
     history.push(`/users/${user.id}`);
   };
 
   return (
     <div className="review-form-container">
-      <h2>Leave a Review</h2>
+      <h2 className="review-title">Leave a Review</h2>
       <form className="review-form" onSubmit={handleSubmit}>
-      <select
+        <select
           value={selectBarber}
           onChange={(e) => {
             setSelectBarber(e.target.value);
@@ -48,9 +48,7 @@ function ReviewForm() {
           name="barbers"
           id="barber-selector"
         >
-          <option value={0} >
-            Please select a barber
-          </option>
+          <option value={0}>Please select a barber</option>
           {barbershop.barbers.map((barber) => {
             return (
               <option value={barber.id} key={barber.id}>
@@ -60,23 +58,23 @@ function ReviewForm() {
           })}
         </select>
         <textarea
-            value={reviewBody}
-            onChange={(e) => setReviewBody(e.target.value)}
-            required
-            placeholder="Tell us about your experience"
-          ></textarea>
-          <select value={rating} onChange={(e) => setRating(e.target.value)}>
-            {" "}
-            Rating:
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-          </select>
-          <button type="submit" className="review-btn">
-            Submit Review
-          </button>
+          value={reviewBody}
+          onChange={(e) => setReviewBody(e.target.value)}
+          required
+          placeholder="Tell us about your experience"
+        ></textarea>
+        <select value={rating} onChange={(e) => setRating(e.target.value)}>
+          {" "}
+          Rating:
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
+        </select>
+        <button type="submit" className="review-btn">
+          Submit Review
+        </button>
       </form>
     </div>
   );

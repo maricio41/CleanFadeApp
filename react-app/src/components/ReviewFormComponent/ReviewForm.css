@@ -10,6 +10,9 @@
 
 .review-form {
 }
+.review-title {
+  font-size: 35px;
+}
 
 textarea {
   width: 23vw;
