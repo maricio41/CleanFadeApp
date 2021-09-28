@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import bootstrap from "bootstrap";
+
 // import CarouselComponent from "../CarouselComponent";
 import photo1 from "./hc2.jpg";
 import photo2 from "./hc3.jpg";
@@ -47,30 +47,90 @@ const HomePage = () => {
         )}
         <div className="homepage__blank"></div>
       </div>
-      <div className="carousel__wrapper">
-        {/* <CarouselComponent /> */}
-        <div className="carousel__pic-frame">
-          <img src={photo1} alt="" />
+
+      <section id="homepage_carousel">
+        <div
+          id="carousel_container"
+          className="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div className="carousel-inner">
+            <div className="carousel-active-item">
+              <img
+                src={photo1}
+                className="d-block w-100"
+                alt="carousel_photo0"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={photo2}
+                className="d-block w-100"
+                alt="carousel_photo1"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={photo6}
+                className="d-block w-100"
+                alt="carousel_photo2"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={photo3}
+                className="d-block w-100"
+                alt="carousel_photo3"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={photo4}
+                className="d-block w-100"
+                alt="carousel_photo4"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={photo5}
+                className="d-block w-100"
+                alt="carousel_photo5"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={photo7}
+                className="d-block w-100"
+                alt="carousel_photo6"
+              />
+            </div>
+          </div>
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#carousel_container"
+            data-bs-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#carousel_container"
+            data-bs-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
-        <div className="carousel__pic-frame">
-          <img src={photo2} alt="" />
-        </div>
-        <div className="carousel__pic-frame">
-          <img src={photo6} alt="" />
-        </div>
-        <div className="carousel__pic-frame">
-          <img src={photo3} alt="" />
-        </div>
-        <div className="carousel__pic-frame">
-          <img src={photo4} alt="" />
-        </div>
-        <div className="carousel__pic-frame">
-          <img src={photo5} alt="" />
-        </div>
-        <div className="carousel__pic-frame">
-          <img src={photo7} alt="" />
-        </div>
-      </div>
+      </section>
     </div>
   );
 };
